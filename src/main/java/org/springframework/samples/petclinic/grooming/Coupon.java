@@ -9,7 +9,8 @@ import org.springframework.samples.petclinic.visit.Visit;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Transient;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,11 +29,13 @@ public class Coupon extends BaseEntity {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     @NotNull
     LocalDate expiryDate;
-    
-    @Transient
+
+    @NotNull
+    @ManyToOne(optional = false)
     GroomingPackage groomingPackage;    
 
-    @Transient
+    @ManyToMany
+    @NotNull
     List<Visit> consumed;
 }
 
