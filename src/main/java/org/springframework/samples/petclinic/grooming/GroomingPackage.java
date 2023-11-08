@@ -6,6 +6,7 @@ import org.springframework.samples.petclinic.model.BaseEntity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -14,6 +15,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@Table(name = "grooming_packages")
 @Entity
 public class GroomingPackage extends BaseEntity {
     @DecimalMin("0.01")
