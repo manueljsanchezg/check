@@ -1,8 +1,12 @@
 package org.springframework.samples.petclinic.grooming;
 
+import java.util.List;
+
+import org.hibernate.annotations.ManyToAny;
 import org.springframework.samples.petclinic.model.NamedEntity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,5 +16,6 @@ import lombok.Setter;
 @Setter
 public class GroomingType extends NamedEntity {
     @NotBlank
-    String description;    
+    String description;
+    
 }
