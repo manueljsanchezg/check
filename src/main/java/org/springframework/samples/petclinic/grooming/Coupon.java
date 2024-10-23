@@ -11,7 +11,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Transient;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(name = "coupons")
 public class Coupon extends BaseEntity {
     
     @NotNull
