@@ -1,5 +1,6 @@
 package org.springframework.samples.petclinic.grooming;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,15 @@ public class CouponService {
         return cr.findAll();
     }    
 
+
     public void addVisit(Coupon c, Visit v) throws UnfeasibleCouponException {
-        // TODO: Change this
+        LocalDate start = c.getStartDate();
+        LocalDate finish = c.getExpiryDate();
+        LocalDate visitDay = v.getDatetime().toLocalDate();
+        if(visitDay.isAfter(finish) || visitDay.isBefore(start)) {
+            throw new UnfeasibleCouponException();
+        }
+        c.getConsumed().add(v);
+        cr.save(c);
     }
 }
