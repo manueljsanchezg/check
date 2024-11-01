@@ -126,8 +126,18 @@ INSERT INTO consultation_tickets(id,description,creation_date, user_id, consulta
 INSERT INTO consultation_tickets(id,description,creation_date, user_id, consultation_id) VALUES (7, 'My lovebird doesn''t sing as my neighbour''s one.', '2023-02-24 12:30', 5, 4);
 INSERT INTO consultation_tickets(id,description,creation_date, user_id, consultation_id) VALUES (8, 'Lovebirds do not sing.', '2023-02-24 18:30', 16, 4);
 
+
 INSERT INTO grooming_packages(id,cost,description) VALUES (1,50,'Hair cut + Nails');
 INSERT INTO grooming_packages(id,cost,description) VALUES (2,30,'Bath + Legs massage');
 
+INSERT INTO grooming_packages_contents(grooming_package_id,contents_id) VALUES (1,1);
+INSERT INTO grooming_packages_contents(grooming_package_id,contents_id) VALUES (1,2);
+INSERT INTO grooming_packages_contents(grooming_package_id,contents_id) VALUES (2,3);
+INSERT INTO grooming_packages_contents(grooming_package_id,contents_id) VALUES (2,5);
+
 INSERT INTO coupons(id,start,finish,grooming_package_id) VALUES (1,'2023-01-05','2023-02-21',1);
 INSERT INTO coupons(id,start,finish,grooming_package_id) VALUES (2,'2022-12-20','2023-01-31',2);
+
+INSERT INTO coupons_consumed(coupon_id,consumed_id) VALUES (1,1);
+INSERT INTO coupons_consumed(coupon_id,consumed_id) VALUES (2,2);
+INSERT INTO coupons_consumed(coupon_id,consumed_id) VALUES (2,3);
