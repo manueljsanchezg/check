@@ -11,9 +11,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Transient;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +19,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Table(name = "coupons")
 public class Coupon extends BaseEntity {
     
     
@@ -31,7 +30,7 @@ public class Coupon extends BaseEntity {
     
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    @Column(name = "finsish")
+    @Column(name = "finish")
     LocalDate expiryDate;
     
     @NotNull
