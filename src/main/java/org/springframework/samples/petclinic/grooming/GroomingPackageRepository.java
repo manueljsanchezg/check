@@ -12,6 +12,6 @@ public interface GroomingPackageRepository extends CrudRepository<GroomingPackag
     public List<GroomingPackage> findAll();
     public Optional<GroomingPackage> findById(Integer id);
 
-    @Query("SELECT gp FROM GroomingPackage gp") // TODO: Modify in exercise 7
+    @Query("SELECT gp FROM GroomingPackage gp JOIN Coupon c ON c.groomingPackage = gp WHERE gp.cost < ?3 AND c.startDate <= ?1 AND c.expiryDate >= ?2") // TODO: Modify in exercise 7
     public List<GroomingPackage> findPackagesByDatesAndCost(LocalDate start,  LocalDate end, double cost);
 }
